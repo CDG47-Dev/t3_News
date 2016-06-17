@@ -1,0 +1,9 @@
+##########################################
+### NEWS VIEW                          ###
+##########################################
+plugin.tx_news {
+  view {
+    partialRootPath = EXT:t3_news/Resources/Private/Partials/News/
+    templateRootPath = EXT:t3_news/Resources/Private/Templates/News/
+  }
+}
