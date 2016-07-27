@@ -3,4 +3,6 @@ tx_news.templateLayouts {
     100 = Carousel
     200 = Une Colonne
     300 = Deux Colonnes
+	400 = News Carousel
+	401 = News Carousel Vertical
 }

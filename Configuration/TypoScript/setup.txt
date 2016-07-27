@@ -23,3 +23,12 @@ plugin.tx_news {
         }
     }
 }
+
+page{
+    includeJSFooterlibs{
+        jsqueryt3News = EXT:t3_news/Resources/Public/Js/initialisation.js
+    }
+    includeCSS{
+        t3NewsCarousel = EXT:t3_news/Resources/Public/Less/global.less
+    }
+}

@@ -66,7 +66,191 @@
                         </div>
                     </div>
                     <!-- DEUX COLONNES END -->
-                </f:case>              
+                </f:case> 
+                <f:case value="400">
+                    <!-- Carousel News Carousel -->
+                    <div id="t3news-newscarousel-{contentObjectData.uid}" class="carousel slide" data-ride="carousel" data-interval="4000">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <f:for each="{news}" as="newsItem" iteration="iterator">
+                                <div class="item{f:if(condition:iterator.isFirst, then:' active')}">
+                                    <f:render partial="List/ItemNewsCarousel" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </div><!-- End Item -->
+                            </f:for>
+                        </div><!-- End Carousel Inner -->
+
+                    <ul class="list-group col-sm-4">
+                        <f:for each="{news}" as="newsItem" iteration="iterator">
+                            <li data-target="#t3news-newscarousel-{contentObjectData.uid}" data-slide-to="{iterator.index}" class="row list-group-item {f:if(condition:iterator.isFirst, then:' active')}">
+                                <span class="carousel-thumb-small col-sm-3">
+								<f:if condition="{newsItem.falMedia}">
+									<!-- fal media preview element -->
+									<f:then>
+										<f:if condition="{newsItem.falMediaPreviews}">
+											<f:then>
+													<f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+														<f:if condition="{mediaElement.originalResource.type} == 2">
+															<f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" class="img-responsive img-thumb"/>
+														</f:if>
+													</f:alias>
+											</f:then>
+											<f:else>
+												<f:if condition="{settings.displayDummyIfNoMedia}">
+														<f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive img-thumb"/>
+												</f:if>
+											</f:else>
+										</f:if>
+
+									</f:then>
+									<f:else>
+
+										<f:if condition="{newsItem.media}">
+											<!-- media preview element -->
+											<f:then>
+												<f:if condition="{newsItem.mediaPreviews}">
+													<f:then>
+															<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+																<f:if condition="{mediaElement.type} == 0">
+																	<f:image src="uploads/tx_news/{mediaElement.image}" title="{mediaElement.title}" alt="{mediaElement.alt}" class="img-responsive img-thumb"/>
+																</f:if>
+															</f:alias>
+													</f:then>
+													<f:else>
+														<f:if condition="{settings.displayDummyIfNoMedia}">
+																<f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive img-thumb"/>
+														</f:if>
+													</f:else>
+												</f:if>
+
+											</f:then>
+											<f:else>
+												<f:if condition="{settings.displayDummyIfNoMedia}">
+													<f:then>
+														<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+															<f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive full-width"/>
+														</n:link>
+													</f:then>
+												</f:if>
+											</f:else>
+										</f:if>
+
+									</f:else>
+								</f:if>
+								</span>
+								<span class="carousel-caption-small col-sm-9">
+								<h4>
+                                    {newsItem.title}
+                                </h4>
+								</span>
+                            </li>
+                        </f:for>
+                    </ul>
+
+                      <!-- Controls -->
+                      <div class="carousel-controls">
+                          <a class="left carousel-control" href="#t3news-newscarousel-{contentObjectData.uid}" data-slide="prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                          </a>
+                          <a class="right carousel-control" href="#t3news-newscarousel-{contentObjectData.uid}" data-slide="next">
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                          </a>
+                      </div>
+
+                    </div>
+                    <!-- Fin Carousel News Carousel -->
+                </f:case>
+				<f:case value="401">
+                    <!-- Carousel News Carousel Vertical -->
+                    <div id="t3news-newscarouselv-{contentObjectData.uid}" class="carousel slide" data-ride="carousel" data-interval="4000">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <f:for each="{news}" as="newsItem" iteration="iterator">
+                                <div class="item{f:if(condition:iterator.isFirst, then:' active')}">
+                                    <f:render partial="List/ItemNewsCarousel" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </div><!-- End Item -->
+                            </f:for>
+                        </div><!-- End Carousel Inner -->
+
+                    <ul class="list-groupv">
+                        <f:for each="{news}" as="newsItem" iteration="iterator">
+                            <li data-target="#t3news-newscarouselv-{contentObjectData.uid}" data-slide-to="{iterator.index}" class="col-sm-4 list-group-item {f:if(condition:iterator.isFirst, then:' active')}">
+                                <span class="carousel-thumb-small">
+								<f:if condition="{newsItem.falMedia}">
+									<!-- fal media preview element -->
+									<f:then>
+										<f:if condition="{newsItem.falMediaPreviews}">
+											<f:then>
+													<f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+														<f:if condition="{mediaElement.originalResource.type} == 2">
+															<f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" class="img-responsive img-thumb"/>
+														</f:if>
+													</f:alias>
+											</f:then>
+											<f:else>
+												<f:if condition="{settings.displayDummyIfNoMedia}">
+														<f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive img-thumb"/>
+												</f:if>
+											</f:else>
+										</f:if>
+
+									</f:then>
+									<f:else>
+
+										<f:if condition="{newsItem.media}">
+											<!-- media preview element -->
+											<f:then>
+												<f:if condition="{newsItem.mediaPreviews}">
+													<f:then>
+															<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+																<f:if condition="{mediaElement.type} == 0">
+																	<f:image src="uploads/tx_news/{mediaElement.image}" title="{mediaElement.title}" alt="{mediaElement.alt}" class="img-responsive img-thumb"/>
+																</f:if>
+															</f:alias>
+													</f:then>
+													<f:else>
+														<f:if condition="{settings.displayDummyIfNoMedia}">
+																<f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive img-thumb"/>
+														</f:if>
+													</f:else>
+												</f:if>
+
+											</f:then>
+											<f:else>
+												<f:if condition="{settings.displayDummyIfNoMedia}">
+													<f:then>
+														<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+															<f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive full-width"/>
+														</n:link>
+													</f:then>
+												</f:if>
+											</f:else>
+										</f:if>
+
+									</f:else>
+								</f:if>
+								</span>
+								<span class="carousel-caption-small">
+								<h4>
+                                    {newsItem.title}
+                                </h4>
+								</span>
+                            </li>
+                        </f:for>
+                    </ul>
+
+                      <!-- Controls -->
+                      <div class="carousel-controls">
+                          <a class="left carousel-control" href="#t3news-newscarouselv-{contentObjectData.uid}" data-slide="prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                          </a>
+                          <a class="right carousel-control" href="#t3news-newscarouselv-{contentObjectData.uid}" data-slide="next">
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                          </a>
+                      </div>
+
+                    </div>
+                    <!-- Fin Carousel News Carousel Vertical-->
+                </f:case>				
                 <f:case default="TRUE">
                     <f:if condition="{settings.hidePagination}">
                         <f:then>
