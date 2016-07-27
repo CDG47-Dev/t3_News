@@ -27,6 +27,7 @@ plugin.tx_news {
 page{
     includeJSFooterlibs{
         jsqueryt3News = EXT:t3_news/Resources/Public/Js/initialisation.js
+		vticker = EXT:t3_news/Resources/Public/Js/vticker.min.js
     }
     includeCSS{
         t3NewsCarousel = EXT:t3_news/Resources/Public/Less/global.less

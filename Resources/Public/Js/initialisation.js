@@ -22,6 +22,7 @@ $(document).ready(function(){
 		}
 		clickEvent = false;
 	});
+	
 })
 $(window).load(function() {
     $('div[id^="t3news-newscarousel-"]').each( function () {
@@ -30,6 +31,44 @@ $(window).load(function() {
         var triggerheight = Math.round(boxheight/itemlength+1);
         $(this).find('.list-group-item').outerHeight(triggerheight);
 	});
+});
+
+/*#####################################
+Additional jQuery for NewsCarousel Ticker
+#####################################*/
+$(document).ready(function(){
+    
+	var clickEvent = false;
+	$('div[id^="t3news-newscarouselticker-"]').carousel({
+		interval:   4000	
+	}).on('click', '.list-groupt li', function() {
+			clickEvent = true;
+			$('.list-groupt li').removeClass('active');
+			$(this).addClass('active');		
+	}).on('slid.bs.carousel', function(e) {
+		if(!clickEvent) {
+			var current = $('.list-groupt li.active');
+			current.removeClass('active');
+			$('.list-groupt li').first().addClass('active');	
+		}
+		clickEvent = false;
+	});
+	$(function() {
+	     var boxheight = $(this).find('.carousel-inner.ticker').innerHeight();
+	  $('.ticker-news').vTicker('init', {speed: 1000, 
+			pause: 4000,
+			showItems: 4,
+			height:boxheight}
+		);
+	});	
+})
+$(window).load(function() {
+    $('div[id^="t3news-newscarouselticker-"]').each( function () {
+        var boxheight = $(this).find('.carousel-inner.ticker').innerHeight();
+        var itemlength = 3;
+        var triggerheight = Math.round(boxheight/itemlength+1);	
+        $(this).find('.list-groupt-item').outerHeight(triggerheight);
+	});	
 });
 
 /*#####################################
