@@ -1,0 +1,14 @@
+//Ajouter le bouton Sauvegarder et Visualiser lors de la création d'une actualité
+TCEMAIN.preview {
+        tx_news_domain_model_news {
+                previewPageId = 1 //uid de la page single
+                useDefaultLanguageRecord = 0
+                fieldToParameterMap {
+                        uid = tx_news_pi1[news_preview]
+                }
+                additionalGetParameters {
+                        tx_news_pi1.controller = News
+                        tx_news_pi1.action = detail
+                }
+        }
+}
