@@ -3,8 +3,11 @@
 ##########################################
 plugin.tx_news {
   view {
+	# cat=t3_news : basic/links/010; type=string; label= Partials News: chemin vers le dossier Partials/News/
     partialRootPath = EXT:t3_news/Resources/Private/Partials/News/
+	# cat=t3_news : basic/links/011; type=string; label= Templates News: chemin vers le dossier Templates/News/
     templateRootPath = EXT:t3_news/Resources/Private/Templates/News/
+	# cat=t3_news : basic/links/012; type=string; label= Layouts News: chemin vers le dossier Layouts/News/
     layoutRootPath = EXT:t3_news/Resources/Private/Layouts/News/
   }
 }
