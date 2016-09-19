@@ -1,0 +1,83 @@
+{namespace n=GeorgRinger\News\ViewHelpers}<!--
+    =====================
+        Partials/List/ItemBoxedThumbnails.html
+-->
+<n:excludeDisplayedNews newsItem="{newsItem}"/>
+<f:if condition="{newsItem.falMedia}">
+    <!-- fal media preview element -->
+    <f:then>
+        <f:if condition="{newsItem.falMediaPreviews}">
+            <f:then>
+                <n:link newsItem="{newsItem}" settings="{settings}" title="Ouvrir {newsItem.title}">
+                    <f:alias map="{mediaElement: newsItem.falMediaPreviews.0}">
+                        <f:if condition="{mediaElement.originalResource.type} == 2">
+                            <f:image src="{mediaElement.uid}" treatIdAsReference="1" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" class="img-responsive full-width" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" width="{settings.list.media.image.maxWidth}.c-0" height="{settings.list.media.image.maxHeight}.c-0"/>
+                        </f:if>
+                        <f:if condition="{mediaElement.originalResource.type} == 4">
+                            <f:render partial="Detail/FalMediaVideo" arguments="{mediaElement: mediaElement}"/>
+                        </f:if>
+                    </f:alias>
+                </n:link>
+            </f:then>
+            <f:else>
+                <f:if condition="{settings.displayDummyIfNoMedia}">
+                    <n:link newsItem="{newsItem}" settings="{settings}" title="Ouvrir {newsItem.title}">
+                        <f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive full-width" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" width="{settings.list.media.image.maxWidth}.c-0" height="{settings.list.media.image.maxHeight}.c-0"/>
+                    </n:link>
+                </f:if>
+            </f:else>
+        </f:if>
+
+    </f:then>
+    <f:else>
+
+        <f:if condition="{newsItem.media}">
+            <!-- media preview element -->
+            <f:then>
+                <f:if condition="{newsItem.mediaPreviews}">
+                    <f:then>
+                        <n:link newsItem="{newsItem}" settings="{settings}" title="Ouvrir {newsItem.title}">
+                            <f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+                                <f:if condition="{mediaElement.type} == 0">
+                                    <f:image src="uploads/tx_news/{mediaElement.image}" title="{mediaElement.title}" alt="{mediaElement.alt}" class="img-responsive full-width" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" width="{settings.list.media.image.maxWidth}.c-0" height="{settings.list.media.image.maxHeight}.c-0"/>
+                                </f:if>
+                                <f:if condition="{mediaElement.type} == 1">
+                                    <f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+                                </f:if>
+                                <f:if condition="{mediaElement.type} == 2">
+                                    <f:render partial="Detail/MediaHtml" arguments="{mediaElement: mediaElement}"/>
+                                </f:if>
+                            </f:alias>
+                        </n:link>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{settings.displayDummyIfNoMedia}">
+                            <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                                <f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive full-width" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" width="{settings.list.media.image.maxWidth}.c-0" height="{settings.list.media.image.maxHeight}.c-0"/>
+                            </n:link>
+                        </f:if>
+                    </f:else>
+                </f:if>
+
+            </f:then>
+            <f:else>
+                <f:if condition="{settings.displayDummyIfNoMedia}">
+                    <f:then>
+                        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                            <f:image src="{settings.list.media.dummyImage}" title="" alt="" class="img-responsive full-width" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" width="{settings.list.media.image.maxWidth}.c-0" height="{settings.list.media.image.maxHeight}.c-0"/>
+                        </n:link>
+                    </f:then>
+                </f:if>
+            </f:else>
+        </f:if>
+
+    </f:else>
+</f:if>
+   <div class="caption">       
+  <!-- header -->
+    <h3>
+      <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+        <span itemprop="headline">{newsItem.title}</span>
+      </n:link>
+    </h3>
+  </div>

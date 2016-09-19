@@ -22,6 +22,30 @@ plugin.tx_news {
             2 = {$plugin.tx_news.view.layoutRootPath}
         }
     }
+    settings {
+		media{
+			image{
+				maxWidth = {$plugin.tx_news.settings.media.maxWidth}
+				maxHeight = {$plugin.tx_news.settings.media.maxHeight}	
+			}
+		}	
+		list{
+			media{
+				image{
+					maxWidth = {$plugin.tx_news.settings.list.media.image.maxWidth}
+					maxHeight = {$plugin.tx_news.settings.list.media.image.maxHeight}	
+				}
+			}
+		}
+		detail{
+			media{
+				image{
+					maxWidth = {$plugin.tx_news.settings.detail.media.image.maxWidth}
+					maxHeight = {$plugin.tx_news.settings.detail.media.image.maxHeight}	
+				}
+			}
+		}		
+	}
 }
 
 page{

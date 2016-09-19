@@ -6,4 +6,5 @@ tx_news.templateLayouts {
 	400 = News Carousel Vertical
 	402 = News Carousel Vertical + Ticker
 	401 = News Carousel Horizontal
+	403 = News Carousel Boxed Thumbnails + Title
 }

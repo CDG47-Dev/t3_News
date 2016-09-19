@@ -3,11 +3,39 @@
 ##########################################
 plugin.tx_news {
   view {
-	# cat=t3_news : basic/links/010; type=string; label= Partials News: chemin vers le dossier Partials/News/
+	# cat=t3_news: basic/links/010; type=string; label= Partials News: chemin vers le dossier Partials/News/
     partialRootPath = EXT:t3_news/Resources/Private/Partials/News/
-	# cat=t3_news : basic/links/011; type=string; label= Templates News: chemin vers le dossier Templates/News/
+	# cat=t3_news: basic/links/011; type=string; label= Templates News: chemin vers le dossier Templates/News/
     templateRootPath = EXT:t3_news/Resources/Private/Templates/News/
-	# cat=t3_news : basic/links/012; type=string; label= Layouts News: chemin vers le dossier Layouts/News/
+	# cat=t3_news: basic/links/012; type=string; label= Layouts News: chemin vers le dossier Layouts/News/
     layoutRootPath = EXT:t3_news/Resources/Private/Layouts/News/
+  }
+  settings{
+	media{
+		#cat=t3_news: basic/dims/010; type=string; label= Largeur max Media par défaut
+		maxWidth = 320
+		#cat=t3_news: basic/dims/011; type=string; label= Hauteur max Media par défaut
+		maxHeight = 240
+	}
+	list{
+		media{
+			image{
+				 #cat=t3_news: basic/dims/020; type=string; label= Largeur Vue List : largeur max par défaut
+				 maxWidth = 240
+				 #cat=t3_news: basic/dims/021; type=string; label= Hauteur Vue List : hauteur max par défaut
+				 maxHeight = 120
+			}
+		}
+	}	
+	detail{
+		media{
+			image {
+				#cat=t3_news: basic/dims/030; type=string; label= Largeur Vue Détail : largeur max par défaut
+				 maxWidth = 280
+				 #cat=t3_news: basic/dims/031; type=string; label= Hauteur Vue Détail : hauteur max par défaut
+				 maxHeight = 140
+			}
+		}
+	}	
   }
 }
