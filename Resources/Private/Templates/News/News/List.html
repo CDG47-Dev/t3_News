@@ -347,7 +347,20 @@
 
                     </div>
                     <!-- Fin News Carousel Vertical + Ticker -->
-                </f:case>				
+                </f:case>
+		<f:case value="600">
+                    <!-- TROIS COLONNES -->
+                    <div id="trois-colonnes-item-{contentObjectData.uid}" class="trois-colonnes">
+                        <div class="row row-eq-height">
+                            <f:for each="{news}" as="newsItem" iteration="iterator">
+                                <div class="col-md-3 thumbnail item">
+                                        <f:render partial="List/ItemTroisColonnes" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                                </div>
+                             </f:for>
+                        </div>
+                    </div>
+                    <!-- TROIS COLONNES END -->
+                </f:case>      
                 <f:case default="TRUE">
                     <f:if condition="{settings.hidePagination}">
                         <f:then>
