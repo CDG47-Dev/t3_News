@@ -348,6 +348,66 @@
                     </div>
                     <!-- Fin News Carousel Vertical + Ticker -->
                 </f:case>
+		<f:case value="500">
+            <!-- News Carousel Boxed Thumbnails + Title -->            
+            <div id="t3news-newscarouselbox-{contentObjectData.uid}" class="carousel slide" data-interval="4000">
+              <div class="carousel-inner">
+                <f:for each="{news}" as="newsItem" iteration="iterator">
+                  
+                  <f:if condition="{iterator.isFirst}">
+                    <f:then>
+                      <div class="item{f:if(condition:iterator.isFirst, then:' active')}">
+                        <div class="row">
+                    </f:then>
+                  </f:if>
+                  
+                  <div class="col-md-3">
+                    <f:render partial="List/ItemBoxedThumbnails" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+                  </div>
+                  <f:if condition="{iterator.cycle} % 4">
+                    <f:then>
+                      <f:if condition="{iterator.isLast}">
+                        <f:then>
+                            </div>
+                          </div>
+                        </f:then>
+                      </f:if>
+                    </f:then>
+                    <f:else>
+                      <f:if condition="{iterator.isLast}">
+                        <f:then>
+                            </div>
+                          </div>
+                        </f:then>
+                        <f:else>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="row">
+                        </f:else>
+                      </f:if>
+                    </f:else>
+                  </f:if>
+                  
+                </f:for>
+              </div>
+              <a class="left carousel-control" href="#t3news-newscarouselbox-{contentObjectData.uid}" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></i></a>
+              <a class="right carousel-control" href="#t3news-newscarouselbox-{contentObjectData.uid}" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+              
+              <ol class="carousel-indicators">
+                <f:for each="{news}" as="newsItem" iteration="iterator">
+                  <f:cycle values="{0: '1', 1:'', 2:'', 3:''}" as="indicator">
+                    <f:if condition="{indicator} == 1">
+                      <f:then>
+                        <li data-target="#t3news-newscarouselbox-{contentObjectData.uid}" data-slide-to="{f:if(condition:iterator.isFirst, then:'0', else:'1')}"{f:if(condition:iterator.isFirst, then:' class="active"')}></li>
+                      </f:then>
+                    </f:if>
+                  </f:cycle>
+                </f:for>
+              </ol>                
+            </div>
+            <!-- News Carousel Boxed Thumbnails + Title -->    
+        </f:case>        
 		<f:case value="600">
                     <!-- TROIS COLONNES -->
                     <div id="trois-colonnes-item-{contentObjectData.uid}" class="trois-colonnes">
