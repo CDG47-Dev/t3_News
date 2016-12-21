@@ -58,11 +58,31 @@
                     <!-- DEUX COLONNES -->
                     <div id="deux-colonnes-item-{contentObjectData.uid}" class="deux-colonnes">
                         <div class="row row-eq-height">
-                            <f:for each="{news}" as="newsItem" iteration="iterator">
+							<f:for each="{news}" as="newsItem" iteration="iterator">
+							    <f:if condition="{iterator.isFirst}">
+								<f:then>
+									<div class="row row-eq-height">
+								</f:then>
+							  </f:if>
                                 <div class="col-md-6 thumbnail item">
                                         <f:render partial="List/ItemDeuxColonnes" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
                                 </div>
-                             </f:for>
+								<f:if condition="{iterator.cycle} % 2">
+									<f:then>
+									</f:then>
+									<f:else>
+									  <f:if condition="{iterator.isLast}">
+										<f:then>
+											</div>
+										</f:then>
+										<f:else>
+										   </div>
+										  <div class="row row-eq-height">
+										</f:else>
+									  </f:if>
+									</f:else>
+								  </f:if>								
+                             </f:for>								
                         </div>
                     </div>
                     <!-- DEUX COLONNES END -->
@@ -411,13 +431,31 @@
 		<f:case value="600">
                     <!-- TROIS COLONNES -->
                     <div id="trois-colonnes-item-{contentObjectData.uid}" class="trois-colonnes">
-                        <div class="row row-eq-height">
                             <f:for each="{news}" as="newsItem" iteration="iterator">
-                                <div class="col-md-3 thumbnail item">
+							    <f:if condition="{iterator.isFirst}">
+								<f:then>
+									<div class="row row-eq-height">
+								</f:then>
+							  </f:if>
+                                <div class="col-md-4 thumbnail item">
                                         <f:render partial="List/ItemTroisColonnes" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
                                 </div>
+								<f:if condition="{iterator.cycle} % 3">
+									<f:then>
+									</f:then>
+									<f:else>
+									  <f:if condition="{iterator.isLast}">
+										<f:then>
+											</div>
+										</f:then>
+										<f:else>
+										   </div>
+										  <div class="row row-eq-height">
+										</f:else>
+									  </f:if>
+									</f:else>
+								  </f:if>								
                              </f:for>
-                        </div>
                     </div>
                     <!-- TROIS COLONNES END -->
                 </f:case>      
