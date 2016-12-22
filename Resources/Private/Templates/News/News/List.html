@@ -484,6 +484,57 @@
 					</div>		
 				<!-- Group news records by firstCategory End -->  
 				 </f:case> 
+				<f:case value="701">
+				<!-- Group news records by firstCategory with carousel --> 
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="nav nav-tabs nav-justified">
+									<f:groupedFor each="{news}" as="groupedNews" groupBy="firstCategory" groupKey="cat">
+										<f:cycle values="{0: 'active', 1 : '', 2 : '', 3 : '', 4 : '', 5 : '', 6 : '', 7 : '', 8 : '' }" as="activeTab">
+											<li  class="{activeTab}"><a href="#cate{cat.uid}" data-toggle="tab">{cat.title}</a></li>
+										</f:cycle>
+									</f:groupedFor>
+							</ul>
+							<div class="tab-content clearfix">
+								<f:groupedFor each="{news}" as="groupedNews" groupBy="firstCategory" groupKey="cat">
+									<f:cycle values="{0: 'active', 1 : '', 2 : '', 3 : '', 4 : '', 5 : '', 6 : '', 7 : '', 8 : '' }" as="activeTab">
+								<div class="tab-pane {activeTab}" id="cate{cat.uid}">								
+									<!-- CAROUSEL -->
+									<div class="wrapper-slider">
+										<div id="carousel-cat{cat.uid}" class="carousel slide home" data-ride="carousel" data-interval="4000">
+										   <!-- Indicators -->
+										   <ol class="carousel-indicators">
+											   <f:for each="{groupedNews}" as="newsItem" iteration="iterator">
+												   <li data-target="#carousel-cat{cat.uid}" data-slide-to="{iterator.index}"{f:if(condition:iterator.isFirst, then:' class="active"')}></li>
+											   </f:for>
+										   </ol>
+										   <!-- Indicators -->
+
+										   <!-- Wrapper for slides -->
+										   <div class="carousel-inner">
+												<f:for each="{groupedNews}" as="newsItem" iteration="iterator">
+													<div class="thumbnail item{f:if(condition:iterator.isFirst, then:' active')}">
+														<f:render partial="List/ItemCarousel" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+													</div>
+												</f:for>
+											</div>
+											<!-- Controls -->
+											<a href="#carousel-cat{cat.uid}" role="button" data-slide="prev" class="left carousel-control">
+												<i class="glyphicon glyphicon-chevron-left btn-prev"></i>
+											</a>
+											<a href="#carousel-cat{cat.uid}" role="button" data-slide="next" class="right carousel-control">
+												<i class="glyphicon glyphicon-chevron-right btn-next"></i>
+											</a>
+										</div>
+									</div>
+									<!-- CAROUSEL END -->									
+								</div>
+									</f:cycle>
+							    </f:groupedFor>
+							</div>
+					</div>		
+				<!-- Group news records by firstCategory  with carousel End -->  
+				 </f:case> 				 
                 <f:case default="TRUE">
                     <f:if condition="{settings.hidePagination}">
                         <f:then>
