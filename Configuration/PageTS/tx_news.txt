@@ -8,4 +8,5 @@ tx_news.templateLayouts {
 	402 = News Carousel Vertical + Ticker
 	401 = News Carousel Horizontal
     500 = BoxedThumbnails
+	700 = Group news records by firstCategory
 }

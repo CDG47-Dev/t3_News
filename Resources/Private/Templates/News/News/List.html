@@ -458,7 +458,32 @@
                              </f:for>
                     </div>
                     <!-- TROIS COLONNES END -->
-                </f:case>      
+                </f:case> 
+				<f:case value="700">
+				<!-- Group news records by firstCategory --> 
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="nav nav-tabs nav-justified">
+									<f:groupedFor each="{news}" as="groupedNews" groupBy="firstCategory" groupKey="cat">
+										<f:cycle values="{0: 'active', 1 : '', 2 : '', 3 : '', 4 : '', 5 : '', 6 : '', 7 : '', 8 : '' }" as="activeTab">
+											<li  class="{activeTab}"><a href="#cate{cat.uid}" data-toggle="tab">{cat.title}</a></li>
+										</f:cycle>
+									</f:groupedFor>
+							</ul>
+							<div class="tab-content clearfix">
+								<f:groupedFor each="{news}" as="groupedNews" groupBy="firstCategory" groupKey="cat">
+									<f:cycle values="{0: 'active', 1 : '', 2 : '', 3 : '', 4 : '', 5 : '', 6 : '', 7 : '', 8 : '' }" as="activeTab">
+								<div class="tab-pane {activeTab}" id="cate{cat.uid}">
+									<f:for each="{groupedNews}" as="newsItem"  iteration="iterator">
+										<f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator}" />
+									</f:for>
+								</div>
+									</f:cycle>
+							    </f:groupedFor>
+							</div>
+					</div>		
+				<!-- Group news records by firstCategory End -->  
+				 </f:case> 
                 <f:case default="TRUE">
                     <f:if condition="{settings.hidePagination}">
                         <f:then>
