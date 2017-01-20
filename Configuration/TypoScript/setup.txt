@@ -57,3 +57,11 @@ page{
         t3NewsCarousel = EXT:t3_news/Resources/Public/Less/global.less
     }
 }
+
+plugin.tx_news.settings.analytics.social {
+     facebookLike = 1
+     facebookShare = 1
+     twitter = 1
+}
+
+plugin.tx_news.settings.facebookLocale = fr_FR
