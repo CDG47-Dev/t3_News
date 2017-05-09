@@ -6,19 +6,19 @@ plugin.tx_news {
         templateRootPaths > 
         templateRootPaths {
             0 = EXT:news/Resources/Private/Templates/
-            1 = EXT:t3_news/Resources/Private/Templates/News/
+            1 = EXT:t3_news/Resources/Private/Templates/
             2 = {$plugin.tx_news.view.templateRootPath}
         }
         partialRootPaths >
         partialRootPaths {
             0 = EXT:news/Resources/Private/Partials/
-            1 = EXT:t3_news/Resources/Private/Partials/News/
+            1 = EXT:t3_news/Resources/Private/Partials/
             2 = {$plugin.tx_news.view.partialRootPath}
         }
         layoutRootPaths >
         layoutRootPaths {
             0 = EXT:news/Resources/Private/Layouts/
-            1 = EXT:t3_news/Resources/Private/Layouts/News/
+            1 = EXT:t3_news/Resources/Private/Layouts/
             2 = {$plugin.tx_news.view.layoutRootPath}
         }
     }

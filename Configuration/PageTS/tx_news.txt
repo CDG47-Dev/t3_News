@@ -1,13 +1,17 @@
 #Déclaration gabarit tx_news
 tx_news.templateLayouts {
-    100 = Carousel
+   
+    1 =  --div--,Colonnes
     200 = Une Colonne
     300 = Deux Colonnes
-    600 = Trois Colonnes	
-	400 = News Carousel Vertical
-	402 = News Carousel Vertical + Ticker
-	401 = News Carousel Horizontal
+    600 = Trois Colonnes
+    2 =  --div--,Carousel
+    100 = Carousel	
+    400 = News Carousel Vertical
+    402 = News Carousel Vertical + Ticker
+    401 = News Carousel Horizontal
+    3 =  --div--,Autres
     500 = BoxedThumbnails
-	700 = Group news records by firstCategory
-	701 = Group news records with carousel
+    700 = Group news records by firstCategory
+    701 = Group news records with carousel
 }
