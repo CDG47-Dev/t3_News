@@ -5,12 +5,13 @@
         Templates/News/List.html
 -->
 <f:section name="content">
+<f:cObject typoscriptObjectPath="lib.controle"/> 
     <f:if condition="{news}">
         <f:then>
             <f:switch expression="{settings.templateLayout}">
-                <f:case value="100">
+                <f:case value="200">
                     <!-- CAROUSEL -->
-                    <div class="wrapper-slider">
+                    <div class="wrapper-slider" >
                         <div id="carousel-{contentObjectData.uid}" class="carousel slide home" data-ride="carousel" data-interval="4000">
                            <!-- Indicators -->
                            <ol class="carousel-indicators">
@@ -39,7 +40,7 @@
                     </div>
                     <!-- CAROUSEL END -->
                 </f:case>
-                <f:case value="200">
+                <f:case value="2100">
                     <!-- UNE COLONNE -->
                     <div id="une-colonne-item-{contentObjectData.uid}" class="une-colonne">
                       <f:for each="{news}" as="newsItem" iteration="iterator">
@@ -54,7 +55,7 @@
                     </div>
                     <!-- UNE COLONNE END -->
                 </f:case>               
-                <f:case value="300">
+                <f:case value="101">
                     <!-- DEUX COLONNES -->
                     <div id="deux-colonnes-item-{contentObjectData.uid}" class="deux-colonnes">
                         <div class="row row-eq-height">
@@ -87,7 +88,7 @@
                     </div>
                     <!-- DEUX COLONNES END -->
                 </f:case> 
-                <f:case value="400">
+                <f:case value="201">
                     <!-- News Carousel Vertical -->
                     <div id="t3news-newscarousel-{contentObjectData.uid}" class="carousel slide" data-ride="carousel" data-interval="4000">
                         <!-- Wrapper for slides -->
@@ -179,7 +180,7 @@
                     </div>
                     <!-- Fin News Carousel Vertical -->
                 </f:case>
-				<f:case value="401">
+				<f:case value="203">
                     <!-- News Carousel Horizontal -->
                     <div id="t3news-newscarouselv-{contentObjectData.uid}" class="carousel slide" data-ride="carousel" data-interval="4000">
                         <!-- Wrapper for slides -->
@@ -271,7 +272,7 @@
                     </div>
                     <!-- News Carousel Horizontal -->
                 </f:case>
-                <f:case value="402">
+                <f:case value="202">
                     <!-- News Carousel Vertical + Ticker -->
                     <div id="t3news-newscarouselticker-{contentObjectData.uid}" class="carousel slide" data-ride="carousel" data-interval="4000">
                         <!-- Wrapper for slides -->
@@ -368,7 +369,7 @@
                     </div>
                     <!-- Fin News Carousel Vertical + Ticker -->
                 </f:case>
-		<f:case value="500">
+		<f:case value="204">
             <!-- News Carousel Boxed Thumbnails + Title -->            
             <div id="t3news-newscarouselbox-{contentObjectData.uid}" class="carousel slide" data-interval="4000">
               <div class="carousel-inner">
@@ -428,7 +429,7 @@
             </div>
             <!-- News Carousel Boxed Thumbnails + Title -->    
         </f:case>        
-		<f:case value="600">
+		<f:case value="102">
                     <!-- TROIS COLONNES -->
                     <div id="trois-colonnes-item-{contentObjectData.uid}" class="trois-colonnes">
                             <f:for each="{news}" as="newsItem" iteration="iterator">
@@ -459,7 +460,7 @@
                     </div>
                     <!-- TROIS COLONNES END -->
                 </f:case> 
-				<f:case value="700">
+				<f:case value="300">
 				<!-- Group news records by firstCategory --> 
 					<div class="row">
 						<div class="col-md-12">
@@ -484,7 +485,7 @@
 					</div>		
 				<!-- Group news records by firstCategory End -->  
 				 </f:case> 
-				<f:case value="701">
+				<f:case value="301">
 				<!-- Group news records by firstCategory with carousel --> 
 					<div class="row">
 						<div class="col-md-12">

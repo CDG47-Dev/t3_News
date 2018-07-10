@@ -23,10 +23,24 @@ plugin.tx_news {
         }
     }
     settings {
+	
+		cropMaxCharacters = {$plugin.tx_news.settings.media.cropMaxCharacters}
+		
+		facebookLocale = fr_FR
+
 		media{
 			image{
 				maxWidth = {$plugin.tx_news.settings.media.maxWidth}
 				maxHeight = {$plugin.tx_news.settings.media.maxHeight}	
+				
+				# Get lightbox settings from css_styled_content
+					lightbox {
+						enabled = {$plugin.tx_news.settings.lightboxEnabled}
+						class = {$plugin.bootstrap_package_contentelements.lightbox.cssClass}
+						width = {$plugin.bootstrap_package_contentelements.lightbox.image.maxWidth}
+						height = {$plugin.bootstrap_package_contentelements.lightbox.image.maxHeight}
+						rel = lightbox[myImageSet]
+					}				
 			}
 		}	
 		list{
@@ -42,26 +56,24 @@ plugin.tx_news {
 				image{
 					maxWidth = {$plugin.tx_news.settings.detail.media.image.maxWidth}
 					maxHeight = {$plugin.tx_news.settings.detail.media.image.maxHeight}	
+					lightbox {
+						 width = 1024
+						 height = 768
+						 rel = lightbox
+					 }
 				}
 			}
 		}		
 	}
 }
 
+
 page{
-    includeJSFooterlibs{
-        jsqueryt3News = EXT:t3_news/Resources/Public/Js/initialisation.js
+	includeJSFooterlibs{
+     		jsqueryt3News = EXT:t3_news/Resources/Public/Js/initialisation.js
 		vticker = EXT:t3_news/Resources/Public/Js/vticker.min.js
-    }
-    includeCSS{
-        t3NewsCarousel = EXT:t3_news/Resources/Public/Less/global.less
-    }
+	}
+	includeCSS{
+	        t3NewsCarousel = EXT:t3_news/Resources/Public/Less/global.less
+	 }
 }
-
-plugin.tx_news.settings.analytics.social {
-     facebookLike = 1
-     facebookShare = 1
-     twitter = 1
-}
-
-plugin.tx_news.settings.facebookLocale = fr_FR

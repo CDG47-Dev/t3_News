@@ -2,16 +2,16 @@
 tx_news.templateLayouts {
    
     1 =  --div--,Colonnes
-    200 = Une Colonne
-    300 = Deux Colonnes
-    600 = Trois Colonnes
+    100 = Une Colonne
+    101 = Deux Colonnes
+    102 = Trois Colonnes
     2 =  --div--,Carousel
-    100 = Carousel	
-    400 = News Carousel Vertical
-    402 = News Carousel Vertical + Ticker
-    401 = News Carousel Horizontal
-    3 =  --div--,Autres
-    500 = BoxedThumbnails
-    700 = Group news records by firstCategory
-    701 = Group news records with carousel
+    200 = Carousel	
+    201 = News Carousel Vertical
+    202 = News Carousel Vertical + Ticker
+    203 = News Carousel Horizontal
+    204 = BoxedThumbnails
+    3 =  --div--,Groupe de news
+    300 = Group news records by firstCategory
+    301 = Group news records with carousel
 }

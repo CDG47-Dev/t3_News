@@ -36,6 +36,11 @@ plugin.tx_news {
 				 maxHeight = 140
 			}
 		}
-	}	
+	}
+	 #cat=t3_news: basic/params/010;type=string; label= Crop Characters : nombre max de caractères
+	cropMaxCharacters = 150	
+
+	#cat=t3_news: basic/params/020;type=boolean; label= Lightbox : Activer Lightbox
+	lightboxEnabled = 1
   }
 }

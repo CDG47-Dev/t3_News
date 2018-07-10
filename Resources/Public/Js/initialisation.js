@@ -1,7 +1,7 @@
 /*#####################################
 Additional jQuery for NewsCarousel
 #####################################*/
-$(document).ready(function(){
+$(function() {
     
 	var clickEvent = false;
 	$('div[id^="t3news-newscarousel-"]').carousel({
@@ -24,7 +24,7 @@ $(document).ready(function(){
 	});
 	
 })
-$(window).load(function() {
+$(window).on('load', function() {
     $('div[id^="t3news-newscarousel-"]').each( function () {
         var boxheight = $(this).find('.carousel-inner').innerHeight();
         var itemlength = $(this).find('.item').length;
@@ -36,7 +36,7 @@ $(window).load(function() {
 /*#####################################
 Additional jQuery for NewsCarousel Ticker
 #####################################*/
-$(document).ready(function(){
+$(function() {
     
 	var clickEvent = false;
 	$('div[id^="t3news-newscarouselticker-"]').carousel({
@@ -62,7 +62,7 @@ $(document).ready(function(){
 		);
 	});	
 })
-$(window).load(function() {
+$(window).on('load', function() {
     $('div[id^="t3news-newscarouselticker-"]').each( function () {
         var boxheight = $(this).find('.carousel-inner.ticker').innerHeight();
         var itemlength = 3;
@@ -74,7 +74,7 @@ $(window).load(function() {
 /*#####################################
 Additional jQuery for NewsCarousel Vertical
 #####################################*/
-$(document).ready(function(){
+$(function() {
     
 	var clickEvent = false;
 	$('div[id^="t3news-newscarouselv-"]').carousel({
